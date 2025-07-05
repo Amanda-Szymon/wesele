@@ -1,6 +1,4 @@
-import { ACCESS_TOKEN } from './token.js';
-
-console.log(ACCESS_TOKEN);
+const ACCESS_TOKEN = '';
 const FOLDER_PATH = "/Pamiątka";
 
 async function loadFiles() {
