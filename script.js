@@ -40,7 +40,16 @@ async function loadFiles(page = 1) {
       return;
     }
 
-    files = listData.entries.filter((e) => e[".tag"] === "file");
+    files = listData.entries.filter((e) => {
+      if (e[".tag"] !== "file") return false;
+
+      const name = e.name.toLowerCase();
+      const isImage = name.match(/\.(jpg|jpeg|png|gif)$/);
+      const isVideo = name.match(/\.(mp4|webm|ogg)$/);
+
+      return isImage || isVideo;
+    });
+
     if (listData.has_more) cursors[1] = listData.cursor;
   } else {
     cursor = cursors[page - 1];
@@ -72,7 +81,16 @@ async function loadFiles(page = 1) {
       return;
     }
 
-    files = listData.entries.filter((e) => e[".tag"] === "file");
+    files = listData.entries.filter((e) => {
+      if (e[".tag"] !== "file") return false;
+
+      const name = e.name.toLowerCase();
+      const isImage = name.match(/\.(jpg|jpeg|png|gif)$/);
+      const isVideo = name.match(/\.(mp4|webm|ogg)$/);
+
+      return isImage || isVideo;
+    });
+
     if (listData.has_more) cursors[page] = listData.cursor;
   }
   allFiles = files;
