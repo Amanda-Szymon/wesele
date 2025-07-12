@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu Weselne</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lora&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #fdfdfd;
+        font-family: "Lora", serif;
+      }
+      .header {
+        font-family: "Dancing Script", cursive;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #8b0000;
+      }
+      .back-button {
+        font-size: 1rem;
+        text-decoration: none;
+        color: #8b0000;
+      }
+      .back-button:hover {
+        text-decoration: underline;
+      }
+
+      .upload-button {
+        background-color: #fff;
+        border: 2px solid #8b0000;
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+        color: #8b0000;
+        font-size: 1.2rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      }
+
+      .upload-button:hover {
+        background-color: #f9f2f2;
+        transform: scale(1.03);
+      }
+
+      .navigation-button {
+        color: #8b0000;
+        font-size: 2.5rem;
+      }
+
+      .navigation-button:hover {
+        background-color: #f9f2f2;
+        transform: scale(1.03);
+      }
+
+      .thumb-container {
+        background-color: #8b4513;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        position: relative;
+      }
+
+      .thumb-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      .thumb-number {
+        position: absolute;
+        bottom: 4px;
+        right: 6px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: black;
+        text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+          1px 1px 0 white;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 2px 4px;
+        border-radius: 3px;
+      }
+
+      .preview-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        overflow: hidden;
+      }
+
+      .preview-modal .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        z-index: 10000;
+      }
+
+      .preview-content {
+        max-width: 90%;
+        max-height: 90%;
+        text-align: center;
+      }
+
+      .preview-content img,
+      .preview-content video {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-4">
+      <div class="mb-4">
+        <a href="index.html" class="back-button">← Powrót</a>
+      </div>
+
+      <div class="text-center mb-4">
+        <div class="header">Galeria zdjęć</div>
+      </div>
+
+      <div class="text-center">
+        <a href="https://www.dropbox.com/request/ZhuYqqMrpEPDxDUcYdNF" class="upload-button mb-4">
+          <i class="bi bi-cloud-upload-fill"></i>
+          <span>Prześlij zdjęcie</span>
+        </a>
+      </div>
+      <div id="file-list" class="row g-2"></div>
+      <div id="pagination-controls" class="text-center mt-3"></div>
+
+      <div id="preview-modal" class="preview-modal d-none">
+        <span class="close-btn" onclick="closePreview()">✕</span>
+        <div class="preview-content" id="preview-content"></div>
+      </div>
+
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
