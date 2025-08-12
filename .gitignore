@@ -1,2 +1,6 @@
 /Wedding
 /.idea
+/dropbox_slideshow.py
+*.py
+*.pyc
+__pycache__/
