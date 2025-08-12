@@ -4,7 +4,7 @@ const FOLDER_PATH = "/Pamiątka";
 
 let cursors = [];
 let allFiles = [];
-const FILE_LIMIT = 50;
+const FILE_LIMIT = 30;
 loadFiles();
 async function loadFiles(page = 1) {
   const fileListDiv = document.getElementById("file-list");
